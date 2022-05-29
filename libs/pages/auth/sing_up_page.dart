@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../base/show_custom_snackBar.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_text_field.dart';
@@ -29,19 +30,19 @@ class SignUpPage extends StatelessWidget {
       String password = passwordController.text.trim();
 
       if(name.isEmpty){
-
+        ShowCustomSnackBar("Escribe tu nombre", title: "Nombre");
       }else if(phone.isEmpty){
-
+        ShowCustomSnackBar("Escribe tu telefono", title: "Telefono");
       }else if(email.isEmpty){
-
+        ShowCustomSnackBar("Escribe tu email", title: "Email");
       }else if(GetUtils.isEmail(email)){
-
+        ShowCustomSnackBar("Escribe email valido", title: "Email Valido");
       }else if(password.isEmpty){
-
+        ShowCustomSnackBar("Escribe tu contraseña", title: "Contraseña");
       }else if(password.length<6){
-
+        ShowCustomSnackBar("Escribe no puedes ser menos que 6", title: "Contraseña");
       }else{
-
+        ShowCustomSnackBar("Todo poderoso", title: "Perfecto");
       }
     }
     return Scaffold(
