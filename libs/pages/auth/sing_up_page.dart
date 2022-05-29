@@ -45,7 +45,6 @@ class SignUpPage extends StatelessWidget {
       }else if(password.length<6){
         ShowCustomSnackBar("Escribe no puedes ser menos que 6", title: "Contraseña");
       }else{
-        ShowCustomSnackBar("Todo poderoso", title: "Perfecto");
         SignUpBody signUpBody = SignUpBody(name: name,
             phone: phone,
             email: email,
