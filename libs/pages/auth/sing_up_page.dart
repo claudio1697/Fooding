@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../base/show_custom_snackBar.dart';
+import '../../models/sign_up_body_model.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_text_field.dart';
@@ -43,6 +44,11 @@ class SignUpPage extends StatelessWidget {
         ShowCustomSnackBar("Escribe no puedes ser menos que 6", title: "Contraseña");
       }else{
         ShowCustomSnackBar("Todo poderoso", title: "Perfecto");
+        SignUpBody signUpBody = SignUpBody(name: name,
+            phone: phone,
+            email: email,
+            password: password);
+
       }
     }
     return Scaffold(
@@ -88,7 +94,7 @@ class SignUpPage extends StatelessWidget {
             //boton SignUP
             GestureDetector(
               onTap: (){
-
+                _registration();
               },
               child: Container(
                 width: Dimension.screenWidth/2,
