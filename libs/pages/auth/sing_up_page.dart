@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../base/show_custom_snackBar.dart';
+import '../../controller/auth_controller.dart';
 import '../../models/sign_up_body_model.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
@@ -25,6 +26,7 @@ class SignUpPage extends StatelessWidget {
       "g.png",
     ];
     void _registration(){
+      var authController = Get.find<AuthController>();
       String name = nameController.text.trim();
       String phone = phoneController.text.trim();
       String email = emailController.text.trim();
@@ -48,7 +50,13 @@ class SignUpPage extends StatelessWidget {
             phone: phone,
             email: email,
             password: password);
-
+        authController.registration(signUpBody).then((status){
+          if(status.isSuccess){
+              print("Te has registrado");
+          }else{
+            ShowCustomSnackBar(status.message);
+          }
+        });
       }
     }
     return Scaffold(
