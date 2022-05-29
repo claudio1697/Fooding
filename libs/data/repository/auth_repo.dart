@@ -20,9 +20,10 @@ class AuthRepo{
     return await apiClient.postData(AppConstants.REGISTRATION_URI, signUpBody);
   }
 
-  saveUserToken(String token){
+  saveUserToken(String token) async{
    apiClient.token = token;
    apiClient.updateHeader(token);
+   return await sharedPreferences.setString(AppConstants.TOKEN, token);
   }
   
 }
