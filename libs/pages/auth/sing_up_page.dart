@@ -22,6 +22,28 @@ class SignUpPage extends StatelessWidget {
       "f.png",
       "g.png",
     ];
+    void _registration(){
+      String name = nameController.text.trim();
+      String phone = phoneController.text.trim();
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+
+      if(name.isEmpty){
+
+      }else if(phone.isEmpty){
+
+      }else if(email.isEmpty){
+
+      }else if(GetUtils.isEmail(email)){
+
+      }else if(password.isEmpty){
+
+      }else if(password.length<6){
+
+      }else{
+
+      }
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -63,18 +85,23 @@ class SignUpPage extends StatelessWidget {
                 hintText: "Telefono", iconData: Icons.phone),
             SizedBox(height: Dimension.height20,),
             //boton SignUP
-            Container(
-              width: Dimension.screenWidth/2,
-              height: Dimension.screenHeight/13,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimension.radius30),
-                color: AppColors.mainColor,
-              ),
-              child: Center(
-                child: GranTexto(
-                  text: "Sign Up",
-                  size: Dimension.font20+Dimension.font20/2,
-                  color: Colors.white,
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Container(
+                width: Dimension.screenWidth/2,
+                height: Dimension.screenHeight/13,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimension.radius30),
+                  color: AppColors.mainColor,
+                ),
+                child: Center(
+                  child: GranTexto(
+                    text: "Sign Up",
+                    size: Dimension.font20+Dimension.font20/2,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -115,5 +142,7 @@ class SignUpPage extends StatelessWidget {
         ),
       ),
     );
+
+
   }
 }
